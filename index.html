@@ -3,97 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Dados de Repasses do Governo</title>
+    <title>Análise de Repasses Governamentais</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            padding: 0;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        h1 {
+            text-align: center;
             margin-bottom: 20px;
         }
-        table, th, td {
+        .container {
+            max-width: 800px;
+            margin: auto;
             border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
-        th, td {
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+        }
+        .section pre {
+            background-color: #f0f0f0;
             padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
+            border-radius: 5px;
+            overflow-x: auto;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Análise de Repasses Governamentais</h1>
 
-<h2>Exibição de Dados de Repasses do Governo</h2>
+        <div class="section">
+            <h2>Resumo de Repasses Bem Sucedidos</h2>
+            <pre id="resumoSucesso"></pre>
+        </div>
 
-<h3>Resumo de Repasses Bem Sucedidos</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Órgão</th>
-            <th>Quantidade</th>
-            <th>Valor Total (R$)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Preenchendo os dados -->
-        <tr>
-            <td>MEC</td>
-            <td>3</td>
-            <td>1700.00</td>
-        </tr>
-        <tr>
-            <td>Ministério da Saúde</td>
-            <td>4</td>
-            <td>2650.00</td>
-        </tr>
-        <!-- Adicionar mais linhas conforme necessário -->
-    </tbody>
-</table>
+        <div class="section">
+            <h2>Resumo de Repasses com Falha</h2>
+            <pre id="resumoFalha"></pre>
+        </div>
 
-<h3>Resumo de Repasses com Falha</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Órgão</th>
-            <th>Quantidade</th>
-            <th>Valor Total (R$)</th>
-            <th>Motivo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Preenchendo os dados -->
-        <tr>
-            <td>MEC</td>
-            <td>2</td>
-            <td>1800.00</td>
-            <td>falta de documentação</td>
-        </tr>
-        <tr>
-            <td>Ministério da Educação</td>
-            <td>2</td>
-            <td>900.00</td>
-            <td>dados inválidos</td>
-        </tr>
-        <!-- Adicionar mais linhas conforme necessário -->
-    </tbody>
-</table>
+        <div class="section">
+            <h2>Motivos de Falha</h2>
+            <pre id="motivosFalha"></pre>
+        </div>
 
-<h3>Detalhes Adicionais</h3>
-<ul>
-    <li>Repasse com maior valor: MEC, 22/01/2024, R$ 1100.00</li>
-    <li>Repasse com menor valor: Ministério da Educação, 12/01/2024, R$ 300.00</li>
-    <li>Dia com mais repasses: 01</li>
-    <li>Órgão com mais repasses: Ministério da Saúde</li>
-    <li>Órgão com mais repasses bem sucedidos: Ministério da Saúde</li>
-    <li>Órgão com mais repasses com falha: MEC</li>
-    <li>Motivo de falha com mais repasses: falta de documentação</li>
-</ul>
+        <div class="section">
+            <h2>Detalhes Adicionais</h2>
+            <pre id="detalhesAdicionais"></pre>
+        </div>
+    </div>
 
+    <script src="index.js"></script>
 </body>
 </html>
 
+       
+       
