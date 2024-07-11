@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Dados de Repasses do Governo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Exibição de Dados de Repasses do Governo</h2>
+
+<h3>Resumo de Repasses Bem Sucedidos</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Órgão</th>
+            <th>Quantidade</th>
+            <th>Valor Total (R$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Preenchendo os dados -->
+        <tr>
+            <td>MEC</td>
+            <td>3</td>
+            <td>1700.00</td>
+        </tr>
+        <tr>
+            <td>Ministério da Saúde</td>
+            <td>4</td>
+            <td>2650.00</td>
+        </tr>
+        <!-- Adicionar mais linhas conforme necessário -->
+    </tbody>
+</table>
+
+<h3>Resumo de Repasses com Falha</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Órgão</th>
+            <th>Quantidade</th>
+            <th>Valor Total (R$)</th>
+            <th>Motivo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Preenchendo os dados -->
+        <tr>
+            <td>MEC</td>
+            <td>2</td>
+            <td>1800.00</td>
+            <td>falta de documentação</td>
+        </tr>
+        <tr>
+            <td>Ministério da Educação</td>
+            <td>2</td>
+            <td>900.00</td>
+            <td>dados inválidos</td>
+        </tr>
+        <!-- Adicionar mais linhas conforme necessário -->
+    </tbody>
+</table>
+
+<h3>Detalhes Adicionais</h3>
+<ul>
+    <li>Repasse com maior valor: MEC, 22/01/2024, R$ 1100.00</li>
+    <li>Repasse com menor valor: Ministério da Educação, 12/01/2024, R$ 300.00</li>
+    <li>Dia com mais repasses: 01</li>
+    <li>Órgão com mais repasses: Ministério da Saúde</li>
+    <li>Órgão com mais repasses bem sucedidos: Ministério da Saúde</li>
+    <li>Órgão com mais repasses com falha: MEC</li>
+    <li>Motivo de falha com mais repasses: falta de documentação</li>
+</ul>
+
+</body>
+</html>
 
