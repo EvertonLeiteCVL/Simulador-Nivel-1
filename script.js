@@ -1,33 +1,33 @@
-/ Exibição e recebimento dos dados do Governo organizados por orgão, Historia1
+// Exibição e recebimento dos dados do Governo organizados por orgão, Historia1
 const dadosRepasses = [
     {
         orgao: "MEC",
-        data: "01/01/2024",
+        data: "01/03/2022",
         valor: 800.00,
         status: "sucesso"
     },
     {
         orgao: "Ministério da Saúde",
-        data: "03/01/2024",
+        data: "03/05/2021",
         valor: 350.00,
         status: "sucesso"
     },
     {
         orgao: "MEC",
-        data: "05/01/2024",
-        valor: 700.00,
+        data: "05/07/2019",
+        valor: 500.00,
         status: "falha",
         motivo: "falta de documentação"
     },
     {
         orgao: "Ministério da Educação",
-        data: "08/01/2024",
-        valor: 600.00,
+        data: "08/12/2002",
+        valor: 180.00,
         status: "sucesso"
     },
     {
         orgao: "Ministério da Saúde",
-        data: "10/01/2024",
+        data: "10/01/2006",
         valor: 900.00,
         status: "sucesso"
     },
@@ -40,25 +40,25 @@ const dadosRepasses = [
     },
     {
         orgao: "Ministério da Saúde",
-        data: "15/01/2024",
+        data: "15/12/2024",
         valor: 1200.00,
         status: "sucesso"
     },
     {
         orgao: "MEC",
-        data: "17/01/2024",
-        valor: 800.00,
+        data: "17/01/2025",
+        valor: 850.50,
         status: "sucesso"
     },
     {
         orgao: "Ministério da Educação",
-        data: "20/01/2024",
+        data: "20/02/2000",
         valor: 400.00,
         status: "sucesso"
     },
     {
         orgao: "MEC",
-        data: "22/01/2024",
+        data: "22/04/2024",
         valor: 1100.00,
         status: "falha",
         motivo: "falta de verba"
@@ -148,21 +148,19 @@ function encontrarMenorValor(dados) {
     return menorValorRepasse;
 }
 
-// Função para encontrar o dia com mais repasses
-function encontrarDiaMaisRepasses(dados) {
+// Chamndo função para encontrar o dia com mais repasses
+ function encontrarDiaMaisRepasses(dados) {
     let contagemDias = {};
+
     dados.forEach(repasse => {
-        let dia = repasse.data.split('/')[0];
-        if (contagemDias[dia]) {
-            contagemDias[dia]++;
-        } else {
-            contagemDias[dia] = 1;
-        }
+        let [dia, mes, ano] = repasse.data.split('/');
+        let dataFormatoBrasileiro = `${dia}/${mes}/${ano}`;
+        contagemDias[dataFormatoBrasileiro] = (contagemDias[dataFormatoBrasileiro] || 0) + 1;
     });
 
-    let diaMaisRepasses = Object.keys(contagemDias).reduce((a, b) => contagemDias[a] > contagemDias[b] ? a : b);
-    return diaMaisRepasses;
+    return Object.keys(contagemDias).reduce((a, b) => contagemDias[a] > contagemDias[b] ? a : b);
 }
+ 
 
  // chamando função para encontrar o órgão com mais repasses
 function encontrarOrgaoMaisRepasses(dados) {
@@ -234,7 +232,7 @@ function encontrarMotivoMaisFalhas(dados) {
 // Chamando função para calcular o resumo dos repasses
 const resumoRepasses = calcularResumoRepasses(dadosRepasses);
 
-// exibir informações do resumo dos repasses bem sucedidos no console
+// exibir as informações do resumo dos repasses bem sucedidos no console
 console.log("Resumo de Repasses Bem Sucedidos:");
 console.log(`1. Quantidade total de repasses bem sucedidos: ${resumoRepasses.sucesso.quantidadeTotal}`);
 
@@ -250,7 +248,7 @@ Object.keys(resumoRepasses.sucesso.valorPorOrgao).forEach(orgao => {
     console.log(`   - ${orgao}: R$ ${resumoRepasses.sucesso.valorPorOrgao[orgao].toFixed(2)}`);
 });
 
-// função para exibir resumo dos repasses com falha no console 
+// chamando função para exibir resumo dos repasses com falha no console 
 console.log("\nResumo de Repasses com Falha:");
 console.log(`1. Quantidade total de repasses com falha: ${resumoRepasses.falha.quantidadeTotal}`);
 
@@ -266,13 +264,13 @@ Object.keys(resumoRepasses.falha.valorPorOrgao).forEach(orgao => {
     console.log(`   - ${orgao}: R$ ${resumoRepasses.falha.valorPorOrgao[orgao].toFixed(2)}`);
 });
 
-// caso houver motivo específico de falha mostrar motivo no console 
+// Se houver motivo específico de falha mostrar motivo no console 
 console.log("\nMotivos de falha:");
 Object.keys(resumoRepasses.falha.quantidadePorMotivo).forEach(motivo => {
     console.log(`- Motivo: ${motivo}, Quantidade: ${resumoRepasses.falha.quantidadePorMotivo[motivo]}, Valor total: R$ ${resumoRepasses.falha.valorPorMotivo[motivo].toFixed(2)}`);
 });
 
-// Mostrar detalhes adicionais de transações no console
+// Mostrar os detalhes adicionais de transações no console
 console.log("\nDetalhes Adicionais:");
 
 console.log("\nDetalhes do repasse com maior valor:");
@@ -294,6 +292,4 @@ console.log("\nÓrgão com mais repasses com falha:");
 console.log(encontrarOrgaoMaisFalhas(dadosRepasses));
 
 console.log("\nMotivo de falha com mais repasses:");
-console.log(encontrarMotivoMaisFalhas(dadosRepasses));
-
-
+console.log(encontrarMotivoMaisFalhas(dadosRepasses)); 
